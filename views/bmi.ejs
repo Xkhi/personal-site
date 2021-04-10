@@ -1,0 +1,29 @@
+<%- include("header") -%>
+
+  <main class="px-3">
+    <h1>Calculate yout Body Mass Index</h1>
+    <p class="lead">Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. Enter your weight and height using standard or metric measures.</p>
+<form action="/" method="post">
+    <div class="form-floating mb-3">
+      <div class="row">
+        <div class="col-lg-6">
+      <input type="text" class="form-control" placeholder="Weight" name="weight">
+    </div>
+    <div class="col-lg-6">
+      <input type="text" class="form-control" placeholder="Height" name="height">
+    </div>
+    </div>
+    <hr>
+    <p class="lead">
+      <button href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-primary">Calculate</button>
+    </p>
+    <ul>
+      <% for(var i = 0; i < bmis.length; i++){ %>
+        <li>Your BMI is <%=bmis[i]%></li>
+      <% } %>
+    </ul>
+  </div>
+</form>
+  </main>
+
+  <%- include("footer") -%>
