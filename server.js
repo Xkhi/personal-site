@@ -8,10 +8,11 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+
 //Globals
 var bmis = [];
 
-//Events
+//Get to sites
 app.get('/date', (req, res)=>{
   const pkmnNum = Math.floor(Math.random() * 800 + 1);
   const date = new Date();
@@ -38,20 +39,25 @@ app.get('/date', (req, res)=>{
    });
 });
 
-app.get('/', (req, res) => {
-  console.log('/ loaded!');
+app.get('/bmi', (req, res) => {
   res.render('bmi', {bmis: bmis, pageTitle: "BMI Calculator"});
 });
 
+app.get('/', (req, res)=>{
+  res.render("home",{pageTitle:"Welcome!"});
+});
+
+//Post to sites
 app.post('/', function(req, res) {
   let w = parseFloat(req.body.weight);
   let h = parseFloat(req.body.height);
   let bmi = w/h**2;
   console.log(h, w, bmi);
   bmis.push(bmi);
-  res.redirect('/');
+  res.redirect('/bmi');
 });
 
+//Listening to port
 app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
