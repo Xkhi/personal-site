@@ -1,0 +1,15 @@
+.flush {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 5rem;
+}
+
+body {
+  background-color: #f6f5f5;
+  /* rest of colors: d3e0ea, 1687a7, 276678*/
+}
+
+.experience-card{
+  margin: 1rem;
+  height: 24.87em;
+}
